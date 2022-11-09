@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import "./App.css";
 export default function App() {
-  const [value, setValue] = useState(() => {
-    return localStorage.getItem("appData") || " ";
-  });
+  const value = "";
   useEffect(() => {
     localStorage.setItem("appData", value);
   }, [value]);
@@ -13,8 +11,7 @@ export default function App() {
       React Marathon, appData:
       <input
         size='5'
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
+        value={localStorage.getItem("appData") || " "}
         type='number'
       ></input>
     </div>
