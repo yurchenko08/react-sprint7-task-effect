@@ -1,14 +1,16 @@
 import { useEffect, useState } from "react";
 import "./App.css";
+
 export default function App() {
-  const [value, setValue] = useState("");
+  const [valueNum, setValueNum] = useState("");
   useEffect(() => {
-    setValue(localStorage.getItem("appData"));
-  }, [value]);
+    setValueNum(localStorage.getItem("appData") || "");
+  }, [valueNum]);
+
   return (
     <div>
-      React Marathon, appData:
-      <input size='5' value={value}></input>
+      React Marathon, appData:{" "}
+      <input size='5' value={valueNum} readOnly={true}></input>
     </div>
   );
 }
